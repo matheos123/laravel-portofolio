@@ -15,7 +15,5 @@
 
     @include('frontend.sections.testimonials')
 
-    @include('frontend.sections.hero')
-
-    @include('frontend.sections.hero')
+    @include('frontend.sections.contact')
 @endsection

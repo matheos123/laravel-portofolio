@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use Flasher\Prime\FlasherInterface;
+use Flasher\Toastr\Prime\ToastrInterface;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
@@ -34,7 +36,7 @@ class ProfileController extends Controller
         }
 
         $request->user()->save();
-        flash()->success('Your account has been de-registered.');
+        toastr()->success('Your account has been de-registered.');
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
 
