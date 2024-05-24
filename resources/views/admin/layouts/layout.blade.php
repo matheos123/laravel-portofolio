@@ -20,11 +20,11 @@
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/bootstrap-timepicker.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/daterangepicker.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/select2.min.css') }}">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/components.css') }}">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 </head>
 
@@ -90,10 +90,10 @@
             @endforeach
         @endif
     </script>
-    <script>
-        $(document).ready(function() {
-            event.preventDefault()
-console.log('hello')
+    {{-- <script>
+        $(document).ready(function(e) {
+            e.preventDefault()
+          console.log('hello')
             $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -101,9 +101,8 @@ console.log('hello')
         });
 
             $('body').on('click', '.delete-item', function(event) {
-                
-
-                let deleteUrl: $(this).attr('href');
+                event.preventDefault();
+                let deleteUrl= $(this).attr('href');
 
                 Swal.fire({
                     title: "Are you sure?",
@@ -124,6 +123,7 @@ console.log('hello')
                                     text: "Your file has been deleted.",
                                     icon: "success"
                                 )
+                                window.location.reload();
                             },
                             error: function(xhr, status, error) {
                                 console.log(error);
@@ -133,7 +133,52 @@ console.log('hello')
                 });
             })
         })
-    </script>
+    </script> --}}
+    <script>
+        $(document).ready(function() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+        
+            $('body').on('click', '.delete-item', function(event) {
+                event.preventDefault();  // Prevent the default action of the button click
+        
+                let deleteUrl = $(this).attr('href');
+        
+                Swal.fire({
+                    title: "Are you sure?",
+                    text: "You won't be able to revert this!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes, delete it!"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            type: "DELETE",
+                            url: deleteUrl,
+                            success: function(data) {
+                                Swal.fire(
+                                    "Deleted!",
+                                    "Your file has been deleted.",
+                                    "success"
+                                ).then(() => {
+                                    window.location.reload();  // Reload the page after successful deletion
+                                });
+                            },
+                            error: function(xhr, status, error) {
+                                console.log(error);
+                            }
+                        });
+                    }
+                });
+            });
+        });
+        </script>
+        
     @stack('scripts');
 </body>
 

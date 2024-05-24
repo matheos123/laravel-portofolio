@@ -50,8 +50,9 @@
             <ul class="dropdown-menu" style="display: none;">
               <li><a class="nav-link" href="{{route('admin.typer-title.index')}}">Typer Title</a></li>
               <li><a class="nav-link" href="{{route('admin.hero.index')}}">Hero Section</a></li>
-
             </ul>
+            <li><a class="nav-link" href="{{route('admin.service.index')}}"><i class="fas fa-columns"></i> <span>Services</span></a></li>
+
           </li>
         </ul>
     </aside>
