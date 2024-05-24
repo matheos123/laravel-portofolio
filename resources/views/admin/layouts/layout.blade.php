@@ -65,6 +65,11 @@
         integrity="sha512-ngQ4IGzHQ3s/Hh8kMyG4FC74wzitukRMIcTOoKT3EyzFZCILOPF0twiXOQn75eDINUfKBYmzYn2AA8DkAk8veQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+
+
+
+     <script src="{{asset('assets/js/plugins/jquery.uploadPreview.min.js')}}"></script>
+    <script src="{{ asset('assets/js/plugins/summernote-bs4.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/jquery.selectric.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/jquery.uploadPreview.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/bootstrap-tagsinput.min.js') }}"></script>
@@ -86,7 +91,7 @@
     <script>
         @if (!empty($errors->all()))
             @foreach ($errors->all() as $error)
-                $toastr->error('{{ $error }}');
+                $toastr - > error('{{ $error }}');
             @endforeach
         @endif
     </script>
@@ -141,12 +146,12 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
-        
+
             $('body').on('click', '.delete-item', function(event) {
-                event.preventDefault();  // Prevent the default action of the button click
-        
+                event.preventDefault(); // Prevent the default action of the button click
+
                 let deleteUrl = $(this).attr('href');
-        
+
                 Swal.fire({
                     title: "Are you sure?",
                     text: "You won't be able to revert this!",
@@ -166,7 +171,8 @@
                                     "Your file has been deleted.",
                                     "success"
                                 ).then(() => {
-                                    window.location.reload();  // Reload the page after successful deletion
+                                    window.location
+                                .reload(); // Reload the page after successful deletion
                                 });
                             },
                             error: function(xhr, status, error) {
@@ -177,8 +183,8 @@
                 });
             });
         });
-        </script>
-        
+    </script>
+
     @stack('scripts');
 </body>
 
