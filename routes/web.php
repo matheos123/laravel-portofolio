@@ -36,6 +36,9 @@ Route::group(
         Route::resource('hero',HeroController::class);
         Route::resource('typer-title',TyperTitleController::class);
         Route::resource('service',ServiceController::class);
+
+        // About Resource
+        Route::get('resume/download',[AboutController::class,'resumeDownload'])->name('resume.download');
         Route::resource('about',AboutController::class);
     }
 );
