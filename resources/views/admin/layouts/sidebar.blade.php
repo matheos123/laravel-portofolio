@@ -51,10 +51,19 @@
               <li><a class="nav-link" href="{{route('admin.typer-title.index')}}">Typer Title</a></li>
               <li><a class="nav-link" href="{{route('admin.hero.index')}}">Hero Section</a></li>
             </ul>
+
             <li><a class="nav-link" href="{{route('admin.service.index')}}"><i class="fas fa-columns"></i> <span>Services</span></a></li>
             <li><a class="nav-link" href="{{route('admin.about.index')}}"><i class="fas fa-columns"></i> <span>About</span></a></li>
+          </li>
 
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Portofolio</span></a>
+            <ul class="dropdown-menu" style="display: none;">
+              <li><a class="nav-link" href="{{route('admin.category.index')}}">Category</a></li>
+              <li><a class="nav-link" href="{{route('admin.portofolio-item.index')}}">Portofolio Item</a></li>
+              <li><a class="nav-link" href="{{route('admin.portfolio-section-setting.index')}}">Section Setting</a></li>
 
+            </ul>
           </li>
         </ul>
     </aside>

@@ -8,7 +8,7 @@
     }
 
     .header-area {
-        padding-top: 250px;
+        padding-top: 150px;
         padding-bottom: 120px;
     }
 
@@ -41,7 +41,7 @@
     }
 
     .site-header .title {
-        font-size: 65px;
+        font-size: 32px;
     }
 }
 
@@ -57,7 +57,7 @@
     }
 
     .header-area {
-        padding-top: 280px;
+        padding-top: 100px;
     }
 
     .single-service {
@@ -297,7 +297,7 @@
     }
 
     .header-text .title {
-        font-size: 46px;
+        font-size: 32px;
     }
 
     .section-title .title,
