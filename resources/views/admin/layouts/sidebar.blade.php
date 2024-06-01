@@ -72,6 +72,13 @@
             </ul>
           </li>
           <li><a class="nav-link" href="{{route('admin.experience.index')}}"><i class="fas fa-columns"></i> <span>Experience</span></a></li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Feedback</span></a>
+            <ul class="dropdown-menu" style="display: none;">
+              <li><a class="nav-link" href="{{route('admin.feedback.index')}}">Feedbacks</a></li>
+              <li><a class="nav-link" href="{{route('admin.feedback-setting.index')}}">Section Setting</a></li>
+            </ul>
+          </li>
         </ul>
     </aside>
   </div>

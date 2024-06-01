@@ -4,6 +4,8 @@ use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ExperienceController;
+use App\Http\Controllers\Admin\FeedbackController;
+use App\Http\Controllers\Admin\FeedbackSettingController;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\PortfolioSectionSettingController;
 use App\Http\Controllers\Admin\PortofolioItem;
@@ -58,5 +60,7 @@ Route::group(
         Route::resource('skill-section-setting',SkillSectionSettingController::class);
         Route::resource('skill-item',SkillItemController::class);
         Route::resource('experience',ExperienceController::class);
+        Route::resource('feedback',FeedbackController::class);
+        Route::resource('feedback-setting',FeedbackSettingController::class);
     }
 );
