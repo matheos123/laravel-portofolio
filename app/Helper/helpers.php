@@ -33,3 +33,11 @@ function deleteFileIfExist($filePath){
    }
    
 }
+
+
+// get dynamic colors
+
+function getColors($index){
+    $colors = ['#558bff','#fecc90','#ff885e','#282828','#190844'];
+    return $colors[$index % count($colors)];
+}

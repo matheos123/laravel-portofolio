@@ -676,6 +676,7 @@ blockquote {
     color: #282828;
     font-weight: 400;
     margin-bottom: 10px;
+    width: 75%;
 }
 
 .bar_group .sub-title {

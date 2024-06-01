@@ -34,7 +34,7 @@
                     </div>
                     <div class="single-info">
                         <h4 class="title">Date</h4>
-                        <p>{{date('d M, Y',strtotime($portfolio->create_at))}}</p>
+                        <p>{{date('d M, Y',strtotime($portfolio->created_at))}}</p>
                     </div>
                     <div class="single-info">
                         <h4 class="title">Website</h4>
@@ -47,7 +47,7 @@
                 </div>
                 <div class="description">
                     {!!$portfolio->description!!}
-                     
+                  
                 </div>
             </div>
         </div>

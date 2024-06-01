@@ -3,12 +3,15 @@
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ExperienceController;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\PortfolioSectionSettingController;
 use App\Http\Controllers\Admin\PortofolioItem;
 use App\Http\Controllers\Admin\PortofolioItemController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\SkillItemController;
+use App\Http\Controllers\Admin\SkillSectionSettingController;
 use App\Http\Controllers\Admin\TyperTitleController;
 use App\Http\Controllers\FrontEnd\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -51,5 +54,9 @@ Route::group(
         
         Route::resource('portfolio-section-setting',PortfolioSectionSettingController::class);
 
+        // Skill Section Route
+        Route::resource('skill-section-setting',SkillSectionSettingController::class);
+        Route::resource('skill-item',SkillItemController::class);
+        Route::resource('experience',ExperienceController::class);
     }
 );
