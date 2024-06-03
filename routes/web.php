@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\BlogSectionSettingController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ContactSectionSettingController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ExperienceController;
 use App\Http\Controllers\Admin\FeedbackController;
@@ -19,6 +20,7 @@ use App\Http\Controllers\Admin\SkillItemController;
 use App\Http\Controllers\Admin\SkillSectionSettingController;
 use App\Http\Controllers\Admin\TyperTitleController;
 use App\Http\Controllers\FrontEnd\HomeController;
+use App\Models\ContactSectionSetting;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class,'index'])->name('home');
@@ -70,5 +72,6 @@ Route::group(
         Route::resource('blog-category',BlogCategoryController::class);
         Route::resource('blog',BlogController::class);
         Route::resource('blog-section-setting',BlogSectionSettingController::class);
+        Route::resource('contact-section-setting',ContactSectionSettingController::class);
     }
 );

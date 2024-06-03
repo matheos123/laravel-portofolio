@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\FrontEnd;
 
 use App\Http\Controllers\Controller;
+use App\Mail\ContactMail;
 use App\Models\About;
 use App\Models\Blog;
 use App\Models\BlogSectionSetting;
 use App\Models\Category;
+use App\Models\ContactSectionSetting;
 use App\Models\Experience;
 use App\Models\Feedback;
 use App\Models\FeedbackSetting;
@@ -18,6 +20,7 @@ use App\Models\SkillItem;
 use App\Models\SkillSectionSetting;
 use App\Models\TyperTitle;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -38,6 +41,7 @@ class HomeController extends Controller
         $feedbackSetting = FeedbackSetting::first();
         $portfolioTitle =  PortfolioSectionSetting::first();
         $blogTitle= BlogSectionSetting::first();
+        $contactTitle = ContactSectionSetting::first();
         return view("frontend.home",
                 compact(
                     "hero",
@@ -53,7 +57,8 @@ class HomeController extends Controller
                     'feedbackSetting',
                     'feedbacks',
                     'blogs',
-                    'blogTitle'
+                    'blogTitle',
+                    'contactTitle'
                     ));
     }
     public function showPortfolio($id){
@@ -74,6 +79,13 @@ class HomeController extends Controller
         return view('frontend.blog',compact('blogs'));
     }
     public function contact(Request $request){
-        
+        $request->validate([
+            'name'=>['required','max:200'],
+            'subject'=>['required','max:500'],
+            'email'=>['required','email'],
+            'message'=>['required','max:2000']
+        ]);
+        Mail::send(new ContactMail($request->all()));
+        return response(['status'=>'success','message'=>'Mail Sent']);
     }
 }
