@@ -1522,3 +1522,26 @@ Footer-Area
 .footer-widgets .text-box ul li a:hover {
     background: #ff895e
 }
+
+
+.page-item{
+  background: #558bff;
+  display: inline-block;
+  width: 50px;
+  height: 50px;  
+  margin: 5px;
+  line-height: 50px;
+  position: relative;
+  z-index: 1;
+  color: #141414;
+}
+.page-link{
+    background-color: #f9f9f9;
+    border: none;
+    color: black;
+}
+.page-item.disabled > .page-link{
+    background-color: #f9f9f9 !important;
+    border: none;
+    color: black;
+}

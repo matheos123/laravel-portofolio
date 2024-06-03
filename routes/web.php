@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\BlogCategoryController;
+use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\BlogSectionSettingController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ExperienceController;
@@ -38,7 +41,9 @@ Route::middleware('auth')->group(function () {
 require __DIR__ . '/auth.php';
 
 Route::get('portfolio-details/{id}',[HomeController::class,'showPortfolio'])->name('show.portfolio');
-
+Route::get('blog-details/{id}',[HomeController::class,'showBlog'])->name('show.blog');
+Route::get('blogs',[HomeController::class,'blog'])->name('blog');
+Route::post('contact',[HomeController::class,'contact'])->name('contact');
 
 // admin  routes
 Route::group(
@@ -62,5 +67,8 @@ Route::group(
         Route::resource('experience',ExperienceController::class);
         Route::resource('feedback',FeedbackController::class);
         Route::resource('feedback-setting',FeedbackSettingController::class);
+        Route::resource('blog-category',BlogCategoryController::class);
+        Route::resource('blog',BlogController::class);
+        Route::resource('blog-section-setting',BlogSectionSettingController::class);
     }
 );
