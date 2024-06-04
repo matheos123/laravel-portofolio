@@ -12,6 +12,9 @@ use App\Models\ContactSectionSetting;
 use App\Models\Experience;
 use App\Models\Feedback;
 use App\Models\FeedbackSetting;
+use App\Models\FooterInfo;
+use App\Models\FooterSocialLink;
+use App\Models\FooterUsefulLink;
 use App\Models\Hero;
 use App\Models\PortfolioSectionSetting;
 use App\Models\PortofolioItem;
@@ -42,6 +45,10 @@ class HomeController extends Controller
         $portfolioTitle =  PortfolioSectionSetting::first();
         $blogTitle= BlogSectionSetting::first();
         $contactTitle = ContactSectionSetting::first();
+
+        $footerInfo = FooterInfo::first();
+        $footerSocialLink = FooterSocialLink::all();
+        $usefulLinks = FooterUsefulLink::all();
         return view("frontend.home",
                 compact(
                     "hero",
@@ -58,7 +65,10 @@ class HomeController extends Controller
                     'feedbacks',
                     'blogs',
                     'blogTitle',
-                    'contactTitle'
+                    'contactTitle',
+                    'footerInfo',
+                    'footerSocialLink',
+                    'usefulLinks'
                     ));
     }
     public function showPortfolio($id){

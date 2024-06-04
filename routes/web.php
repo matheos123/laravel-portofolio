@@ -10,6 +10,10 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ExperienceController;
 use App\Http\Controllers\Admin\FeedbackController;
 use App\Http\Controllers\Admin\FeedbackSettingController;
+use App\Http\Controllers\Admin\FooterContactInfoController;
+use App\Http\Controllers\Admin\FooterInfoController;
+use App\Http\Controllers\Admin\FooterSocialLinkController;
+use App\Http\Controllers\Admin\FooterUsefulLinkController;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\PortfolioSectionSettingController;
 use App\Http\Controllers\Admin\PortofolioItem;
@@ -54,16 +58,11 @@ Route::group(
         Route::resource('hero',HeroController::class);
         Route::resource('typer-title',TyperTitleController::class);
         Route::resource('service',ServiceController::class);
-
-        // About Resource
         Route::get('resume/download',[AboutController::class,'resumeDownload'])->name('resume.download');
         Route::resource('about',AboutController::class);
         Route::resource('category',CategoryController::class);
         Route::resource('portofolio-item', PortofolioItemController::class);
-        
         Route::resource('portfolio-section-setting',PortfolioSectionSettingController::class);
-
-        // Skill Section Route
         Route::resource('skill-section-setting',SkillSectionSettingController::class);
         Route::resource('skill-item',SkillItemController::class);
         Route::resource('experience',ExperienceController::class);
@@ -73,5 +72,9 @@ Route::group(
         Route::resource('blog',BlogController::class);
         Route::resource('blog-section-setting',BlogSectionSettingController::class);
         Route::resource('contact-section-setting',ContactSectionSettingController::class);
+        Route::resource('footer-social',FooterSocialLinkController::class);
+        Route::resource('footer-info',FooterInfoController::class);
+        Route::resource('footer-contact-info',FooterContactInfoController::class);
+        Route::resource('footer-useful-link',FooterUsefulLinkController::class);
     }
 );
