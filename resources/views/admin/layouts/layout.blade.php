@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <title>Dashboard</title>
 
     <!-- General CSS Files -->
@@ -60,11 +61,11 @@
             @include('admin.layouts.sidebar');
             <!-- Main Content -->
             <div class="main-content">
-                @yield('content');
+                @yield('content')
             </div>
             <footer class="main-footer">
                 <div class="footer-left">
-                    Copyright &copy; 2024 <div class="bullet"></div> Design By Matheos Belay
+                    Copyright &copy; 2024 <div class="bullet"></div> Developed By Matheos Belay
                 </div>
                 <div class="footer-right">
                     1.0
@@ -112,6 +113,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-iconpicker/1.10.0/js/bootstrap-iconpicker.bundle.min.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
         @if (!empty($errors->all()))
             @foreach ($errors->all() as $error)

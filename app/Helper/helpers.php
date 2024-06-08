@@ -41,3 +41,14 @@ function getColors($index){
     $colors = ['#558bff','#fecc90','#ff885e','#282828','#190844'];
     return $colors[$index % count($colors)];
 }
+
+
+function setSidebarActive ($route){
+    if(is_array($route)){
+        foreach($route as $r){
+            if(request()->routeIs($r)){
+                return 'active';
+            }
+        }
+    }
+}

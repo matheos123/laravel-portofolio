@@ -4,9 +4,6 @@
     $footerUsefulLinks = \App\Models\FooterUsefulLink::all();
     $footerContact = \App\Models\FooterContactInfo::first();
 @endphp
-
-
-
 <!-- Footer-Area-Start -->
 <footer class="footer-area">
     <div class="container">
@@ -14,7 +11,7 @@
             <div class="col-md-12 col-lg-3 widget">
                 <div class="text-box">
                     <figure class="footer-logo">
-                        <img src="images/logo.png" alt="">
+                        <img src="{{$generalSetting->footer_logo}}" alt="">
                     </figure>
                     <p>{{$footerInfo->info}} </p>
                     <ul class="d-flex flex-wrap">
@@ -40,15 +37,18 @@
                     <li><a href="">{{$footerContact->email}}</a></li>
                 </ul>
             </div>
-            {{-- <div class="col-md-4 col-lg-3 widget">
+            <div class="col-md-4 col-lg-3 widget">
                 <h3 class="widget-title">Help</h3>
-                <ul class="nav-menu">
+                {{-- <ul class="nav-menu">
                     <li><a href="#">Privacy Policy</a></li>
                     <li><a href="#">404 Page</a></li>
                     <li><a href="#">Terms</a></li>
                     <li><a href="#">Documentation</a></li>
-                </ul>
-            </div> --}}
+                </ul> --}}
+                <p>Lorem ipsum dolor sit amet consectetur
+                     adipisicing elit. Ex autem pariatur porro, 
+                     excepturi maxime eaque. Non similique voluptatum </p>
+            </div>
         </div>
     </div>
     <div class="footer-bottom">

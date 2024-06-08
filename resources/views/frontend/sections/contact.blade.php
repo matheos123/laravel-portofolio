@@ -1,4 +1,4 @@
-<!-- Contact-Area-Start -->
+ <!-- Contact-Area-Start -->
 <section class="contact-area section-padding" id="contact-page">
     <div class="container">
         <div class="row">
@@ -14,8 +14,9 @@
         <div class="row">
             <div class="col-sm-12">
                 <!-- Contact-Form -->
-                <form class="contact-form" id="contact-form">
+                <form method="POST" class="contact-form" id="contact-form">
                     @csrf
+                   
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-box">
@@ -64,46 +65,48 @@
 <!-- Contact-Area-End -->
 
 
-@push('scripts')
+ @push('scripts')
     <script>
-        $(document).ready(function(){
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-             $(document).on('submit','#contact-form',function(e){
+          $(document).ready(function(){
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $(document).on('submit','#contact-form',function(e){
             e.preventDefault();
             $.ajax({
-                type:"POST",
-                url: "{{route('contact')}}",
-                data:$(this).serialize(),
+                type: "POST",
+                url: "{{ route('contact') }}",
+                data: $(this).serialize(),
                 beforeSend: function(){
                     $('#submit_btn').prop("disabled",true);
                     $('#submit_btn').text('Sending...');
                 },
                 success: function(response){
-                    if(response.status == 'success'){
-                        toastr.response(response.message);
+                    if(response.status === 'success'){
+                        toastr.success(response.message);
                         $('#submit_btn').prop("disabled",false);
                         $('#submit_btn').text('Send Now');
-                        $('#contact_form').trigger('reset');
+                        $('#contact-form').trigger('reset');
                     }
-                    
                 },
                 error: function(response){
-                    if(response.status == 422){
-                        let errorsMessage = $.parseJSON(response.responseText)
-                        $.each(errorsMessage.errors,function(key,val){
-                            toastr.error(val[0])
-                        })
+                    if(response.status === 422){
+                        let errorsMessage = $.parseJSON(response.responseText);
+                        $.each(errorsMessage.errors, function(key, val){
+                            toastr.error(val[0]);
+                        });
                         $('#submit_btn').prop("disabled",false);
                         $('#submit_btn').text('Send Now');
                     }
                 }
-            })
-        })
-        })
-       
-    </script>
-@endpush
+            });
+        });
+    }); 
+        </script>
+ 
+</>
+@endpush  
+

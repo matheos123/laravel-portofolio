@@ -1,3 +1,9 @@
+@php
+    $generalSetting = App\Models\GeneralSetting::first();
+    $seo = App\Models\SeoSetting::first();
+@endphp
+
+
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -5,10 +11,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="description" content="{{$seo->description}}" >
+    <meta name="keywords" content="{{$seo->keywords}}" >
 
-    <title>Matheos | Website Developer</title>
-    <link rel="shortcut icon" type="image/ico" href="images/favicon.png" />
+    <title>{{@$seo->title}}</title>
+    <link rel="shortcut icon" type="image/ico" href="{{asset($generalSetting->favicon)}}" />
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/normalize.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/style-plugin-collection.css') }}">
@@ -36,7 +44,7 @@
     <script src="{{ asset('frontend/assets/js/vendor/modernizr.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/main.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     @stack('scripts')
 </body>
 

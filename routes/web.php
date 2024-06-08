@@ -14,12 +14,15 @@ use App\Http\Controllers\Admin\FooterContactInfoController;
 use App\Http\Controllers\Admin\FooterInfoController;
 use App\Http\Controllers\Admin\FooterSocialLinkController;
 use App\Http\Controllers\Admin\FooterUsefulLinkController;
+use App\Http\Controllers\Admin\GeneralSettingController;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\PortfolioSectionSettingController;
 use App\Http\Controllers\Admin\PortofolioItem;
 use App\Http\Controllers\Admin\PortofolioItemController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\SeoSettingController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SkillItemController;
 use App\Http\Controllers\Admin\SkillSectionSettingController;
 use App\Http\Controllers\Admin\TyperTitleController;
@@ -50,6 +53,7 @@ Route::get('portfolio-details/{id}',[HomeController::class,'showPortfolio'])->na
 Route::get('blog-details/{id}',[HomeController::class,'showBlog'])->name('show.blog');
 Route::get('blogs',[HomeController::class,'blog'])->name('blog');
 Route::post('contact',[HomeController::class,'contact'])->name('contact');
+Route::get('resume/download',[AboutController::class,'resumeDownload'])->name('resume.download');
 
 // admin  routes
 Route::group(
@@ -58,7 +62,6 @@ Route::group(
         Route::resource('hero',HeroController::class);
         Route::resource('typer-title',TyperTitleController::class);
         Route::resource('service',ServiceController::class);
-        Route::get('resume/download',[AboutController::class,'resumeDownload'])->name('resume.download');
         Route::resource('about',AboutController::class);
         Route::resource('category',CategoryController::class);
         Route::resource('portofolio-item', PortofolioItemController::class);
@@ -76,5 +79,10 @@ Route::group(
         Route::resource('footer-info',FooterInfoController::class);
         Route::resource('footer-contact-info',FooterContactInfoController::class);
         Route::resource('footer-useful-link',FooterUsefulLinkController::class);
+        Route::get('setting',SettingController::class)->name('setting.index');
+        Route::resource('general-setting',GeneralSettingController::class);
+        Route::resource('seo-setting',SeoSettingController::class);
+
+
     }
 );
