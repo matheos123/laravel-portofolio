@@ -25,7 +25,7 @@
                 <h3 class="widget-title">Useful Link</h3>
                 <ul class="nav-menu">
                     @foreach ($footerUsefulLinks as $links )
-                            <li><a href="{{$links->url}}">{{$links->name}}</a></li>
+                            <li><a href="{{$links->url}}" target="_blank">{{$links->name}}</a></li>
                     @endforeach
                 </ul>
             </div>

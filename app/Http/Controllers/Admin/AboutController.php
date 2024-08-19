@@ -62,7 +62,7 @@ class AboutController extends Controller
             'image'=>['image','max:5000'],
             'resume'=>['mimes:pdf,csv,text','max:10000']
         ]);
-            $about = About::first();
+        $about = About::first();
         $imagePath = handleUpload('image',$about);
         $resumePath= handleUpload('resume',$about);
         About::updateOrCreate(

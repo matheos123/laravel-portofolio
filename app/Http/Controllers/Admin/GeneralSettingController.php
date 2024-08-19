@@ -55,9 +55,9 @@ class GeneralSettingController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'logo'=>['required','max:5000','image'],
-            'footer_logo'=>['required','max:5000','image'],
-            'favicon'=>['required','max:5000','image'],
+            'logo'=>['max:5000','image'],
+            'footer_logo'=>['max:5000','image'],
+            'favicon'=>['max:5000','image'],
         ]);
         $setting = GeneralSetting::first();
         $logo=handleUpload('logo',$setting);
@@ -65,7 +65,7 @@ class GeneralSettingController extends Controller
         $favicon =handleUpload('favicon',$setting);
 
 
-        $generalSetting = new GeneralSetting();
+        $generalSetting = GeneralSetting::first();
         $generalSetting->logo = (!empty($logo) ? $logo : $setting->logo);
         $generalSetting->footer_logo = (!empty($footer_logo ) ? $footer_logo  : $setting->footer_logo );
         $generalSetting->favicon = (!empty($favicon) ? $favicon : $setting->favicon);

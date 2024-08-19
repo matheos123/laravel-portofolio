@@ -42,6 +42,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/daterangepicker.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/select2.min.css') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    {{-- <link rel="stylesheet" href="{{asset('assets/css/datatabls.css')}}"> --}}
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/components.css') }}">
@@ -74,6 +75,8 @@
         </div>
     </div>
 
+    {{-- datatables Js --}}
+    {{-- <script src="{{asset('assets/js/datatable.js')}}"></script> --}}
     <!-- General JS Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -148,6 +151,7 @@
                         $.ajax({
                             type: "DELETE",
                             url: deleteUrl,
+                            data:{_token: "{{csrf_token()}}"},
                             success: function(data) {
                             if(data.status == 'error'){
                                 Swal.fire(

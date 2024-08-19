@@ -20,7 +20,7 @@
                     <a class="nav-link" href="#about-page">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#portfolio-page">Portfolio <i class="fas fa-angle-down"></i></a>
+                    <a class="nav-link" href="#portfolio-page">Portfolio </i></a>
                   </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#skills-page">Skills</a>
