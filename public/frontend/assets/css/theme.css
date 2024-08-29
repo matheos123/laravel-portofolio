@@ -1476,13 +1476,13 @@ Footer-Area
 }
 
 .navbar-brand {
-    max-width: 190px;
+    max-width: 120px;
     padding: 0;
     margin: 0;
 }
 
 .footer-widgets .footer-logo {
-    max-width: 190px;
+    max-width: 120px;
 }
 
 .copyright {
