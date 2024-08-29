@@ -10,7 +10,7 @@
             <div class="col-sm-5">
                 <div class="breadcrumbs">
                     <ul>
-                        <li><a href="#">Home</a></li>
+                        <li><a href="{{route('home')}}">Home</a></li>
                         <li>Blog</li>
                     </ul>
                 </div>
