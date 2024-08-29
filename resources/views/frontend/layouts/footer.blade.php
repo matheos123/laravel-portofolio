@@ -37,18 +37,10 @@
                     <li><a href="">{{$footerContact->email}}</a></li>
                 </ul>
             </div>
-            <div class="col-md-4 col-lg-3 widget">
+             <div class="col-md-4 col-lg-3 widget">
                 <h3 class="widget-title">Help</h3>
-                {{-- <ul class="nav-menu">
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">404 Page</a></li>
-                    <li><a href="#">Terms</a></li>
-                    <li><a href="#">Documentation</a></li>
-                </ul> --}}
-                <p>Lorem ipsum dolor sit amet consectetur
-                     adipisicing elit. Ex autem pariatur porro, 
-                     excepturi maxime eaque. Non similique voluptatum </p>
-            </div>
+                <p>Call at any time for Help, for Business, for Voluteer works. I will try my best. </p>
+            </div> 
         </div>
     </div>
     <div class="footer-bottom">
