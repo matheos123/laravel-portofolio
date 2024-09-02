@@ -45,7 +45,6 @@ class HomeController extends Controller
         $portfolioTitle =  PortfolioSectionSetting::first();
         $blogTitle= BlogSectionSetting::first();
         $contactTitle = ContactSectionSetting::first();
-
         $footerInfo = FooterInfo::first();
         $footerSocialLink = FooterSocialLink::all();
         $usefulLinks = FooterUsefulLink::all();

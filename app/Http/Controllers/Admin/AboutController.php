@@ -76,7 +76,7 @@ class AboutController extends Controller
             ]
         );
         return redirect()->back();
-        //
+        
     }
 
 
